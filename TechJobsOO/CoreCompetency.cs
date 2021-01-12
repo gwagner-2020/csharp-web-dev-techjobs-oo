@@ -28,13 +28,12 @@ namespace TechJobsOO
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(id);
+            return HashCode.Combine(Id);
         }
 
         public override string ToString()
         {
             return Value;
         }
-    }
     }
 }
