@@ -19,5 +19,30 @@ namespace TechJobsOO
         }
 
         // TODO: Add custom Equals(), GetHashCode(), and ToString() methods.
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+
+            if (obj.GetType() != this.GetType())
+            {
+                return false;
+            }
+
+            PositionType pt = obj as PositionType;
+            return this.Id == pt.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id);
+        }
+
+        public override string ToString()
+        {
+            return this.Value;
+        }
     }
 }
