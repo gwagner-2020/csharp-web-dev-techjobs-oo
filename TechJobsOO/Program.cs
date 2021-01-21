@@ -22,6 +22,14 @@ namespace TechJobsOO
                 Console.WriteLine(job);
             }
             */
+
+            Job testJob = new Job("Android Developer", new Employer(), new Location("Kansas City"), new PositionType("Mobile Developer"), new CoreCompetency("Android"));
+
+            Console.WriteLine(testJob);
+
+            Job testJob2 = new Job();
+
+            Console.WriteLine(testJob2);
         }
     }
 }

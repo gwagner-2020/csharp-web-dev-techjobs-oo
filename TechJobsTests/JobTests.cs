@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 using TechJobsOO;
 
 namespace TechJobsTests
@@ -63,5 +64,95 @@ namespace TechJobsTests
 
             Assert.AreEqual(expectedOutput, actualOutput);
         }
+
+        [TestMethod]
+        public void TestToStringMethodBlankLines()
+        {
+            Job testJob = new Job("Android Developer", new Employer("EyeVerify"), new Location("Kansas City"), new PositionType("Mobile Developer"), new CoreCompetency("Android"));
+
+            string testString = testJob.ToString();
+
+            bool actualOutputBlankLineStart = testString.StartsWith('\n');
+            bool expectedOutputBlankLineStart = true;
+
+            bool actualOutputBlankLineFinish = testString.EndsWith('\n');
+            bool expectedOutputBlankLineFinish = true;
+
+            Assert.AreEqual(expectedOutputBlankLineStart, actualOutputBlankLineStart);
+            Assert.AreEqual(expectedOutputBlankLineFinish, actualOutputBlankLineFinish);
+        }
+
+        [TestMethod]
+        public void TestToStringMethodContainsDataAndFormatting()
+        {
+            Job testJob = new Job("Android Developer", new Employer("EyeVerify"), new Location("Kansas City"), new PositionType("Mobile Developer"), new CoreCompetency("Android"));
+
+            //List<string> labels = new List<string> { "ID:", "Name:", "Employer:", "Location:", "Position Type:", "Core Competency:" };
+
+            //string testString = testJob.ToString();
+            string actualOutput = testJob.ToString();
+
+            string expectedOutput = $"\nID: {testJob.Id}\nName: Android Developer\nEmployer: EyeVerify\nLocation: Kansas City\nPosition Type: Mobile Developer\nCore Competency: Android\n";
+
+            Assert.AreEqual(expectedOutput, actualOutput);
+
+            //foreach (string label in labels)
+            //{
+            //    Assert.IsTrue(testString.Contains(label));
+            //}
+            //Assert.IsTrue(testString.Contains("ID:"));
+            //Assert.IsTrue(testString.Contains("Name:"));
+            //Assert.IsTrue(testString.Contains("Employer:"));
+            //Assert.IsTrue(testString.Contains("Location:"));
+            //Assert.IsTrue(testString.Contains("Position Type:"));
+            //Assert.IsTrue(testString.Contains("Core Competency:"));
+        }
+
+        //[TestMethod]
+        //public void TestToStringMethodContainsFieldData()
+        //{
+        //    Job testJob = new Job("Android Developer", new Employer("EyeVerify"), new Location("Kansas City"), new PositionType("Mobile Developer"), new CoreCompetency("Android"));
+
+        //    string stringId = $"{testJob.Id}";
+
+        //    List<string> fieldData = new List<string> { stringId, testJob.Name, testJob.EmployerName.Value, testJob.EmployerLocation.Value, testJob.JobType.Value, testJob.JobCoreCompetency.Value };
+
+
+        //    string testString = testJob.ToString();
+
+        //    foreach (string field in fieldData)
+        //    {
+        //        Assert.IsTrue(testString.Contains(field));
+        //    }
+        //}
+        [TestMethod]
+        public void TestToStringMethodEmptyFields()
+        {
+            Job testJob = new Job("Android Developer", new Employer(), new Location(""), new PositionType(), new CoreCompetency("Android"));
+
+            string actualOutput = testJob.ToString();
+
+            string expectedOutput = $"\nID: {testJob.Id}\nName: Android Developer\nEmployer: Data not available\nLocation: Data not available\nPosition Type: Data not available\nCore Competency: Android\n";
+
+            Assert.AreEqual(expectedOutput, actualOutput);
+        }
+
+        [TestMethod]
+        public void TestToStringMethodIdFieldOnly()
+        {
+            Job testJob = new Job();
+
+            string actualOutput = testJob.ToString();
+
+            string expectedOutput = "\nOOPS! This job does not seem to exist.\n";
+
+            Assert.AreEqual(expectedOutput, actualOutput);
+        }
+        
+        
+
+        
+        
+
     }
 }
