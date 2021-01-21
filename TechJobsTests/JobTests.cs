@@ -23,6 +23,7 @@ namespace TechJobsTests
             Assert.AreEqual(expectedOutput2, actualOutput2);
         }
 
+
         [TestMethod]
         public void TestJobConstructorSetsAllFields()
         {
@@ -53,6 +54,7 @@ namespace TechJobsTests
             Assert.AreEqual(expectedOutputCompetency, actualOutputCompetency);
         }
 
+
         [TestMethod]
         public void TestJobsForEquality()
         {
@@ -64,6 +66,7 @@ namespace TechJobsTests
 
             Assert.AreEqual(expectedOutput, actualOutput);
         }
+
 
         [TestMethod]
         public void TestToStringMethodBlankLines()
@@ -82,53 +85,24 @@ namespace TechJobsTests
             Assert.AreEqual(expectedOutputBlankLineFinish, actualOutputBlankLineFinish);
         }
 
+
         [TestMethod]
         public void TestToStringMethodContainsDataAndFormatting()
         {
             Job testJob = new Job("Android Developer", new Employer("EyeVerify"), new Location("Kansas City"), new PositionType("Mobile Developer"), new CoreCompetency("Android"));
 
-            //List<string> labels = new List<string> { "ID:", "Name:", "Employer:", "Location:", "Position Type:", "Core Competency:" };
-
-            //string testString = testJob.ToString();
             string actualOutput = testJob.ToString();
 
             string expectedOutput = $"\nID: {testJob.Id}\nName: Android Developer\nEmployer: EyeVerify\nLocation: Kansas City\nPosition Type: Mobile Developer\nCore Competency: Android\n";
 
             Assert.AreEqual(expectedOutput, actualOutput);
-
-            //foreach (string label in labels)
-            //{
-            //    Assert.IsTrue(testString.Contains(label));
-            //}
-            //Assert.IsTrue(testString.Contains("ID:"));
-            //Assert.IsTrue(testString.Contains("Name:"));
-            //Assert.IsTrue(testString.Contains("Employer:"));
-            //Assert.IsTrue(testString.Contains("Location:"));
-            //Assert.IsTrue(testString.Contains("Position Type:"));
-            //Assert.IsTrue(testString.Contains("Core Competency:"));
         }
 
-        //[TestMethod]
-        //public void TestToStringMethodContainsFieldData()
-        //{
-        //    Job testJob = new Job("Android Developer", new Employer("EyeVerify"), new Location("Kansas City"), new PositionType("Mobile Developer"), new CoreCompetency("Android"));
 
-        //    string stringId = $"{testJob.Id}";
-
-        //    List<string> fieldData = new List<string> { stringId, testJob.Name, testJob.EmployerName.Value, testJob.EmployerLocation.Value, testJob.JobType.Value, testJob.JobCoreCompetency.Value };
-
-
-        //    string testString = testJob.ToString();
-
-        //    foreach (string field in fieldData)
-        //    {
-        //        Assert.IsTrue(testString.Contains(field));
-        //    }
-        //}
         [TestMethod]
         public void TestToStringMethodEmptyFields()
         {
-            Job testJob = new Job("Android Developer", new Employer(), new Location(""), new PositionType(), new CoreCompetency("Android"));
+            Job testJob = new Job("Android Developer", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency("Android"));
 
             string actualOutput = testJob.ToString();
 
@@ -137,10 +111,11 @@ namespace TechJobsTests
             Assert.AreEqual(expectedOutput, actualOutput);
         }
 
+
         [TestMethod]
         public void TestToStringMethodIdFieldOnly()
         {
-            Job testJob = new Job();
+            Job testJob = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
 
             string actualOutput = testJob.ToString();
 

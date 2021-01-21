@@ -116,15 +116,15 @@ namespace TechJobsOO
             {
                 stringCompetency += $"Core Competency: {this.JobCoreCompetency.Value}";
             }
-                
-            //if ((this.Name == null || this.Name == "") && (this.EmployerName.Value == null || this.EmployerName.Value == "") && (this.EmployerLocation.Value == null || this.EmployerLocation.Value == "") && (this.EmployerLocation.Value == null || this.EmployerLocation.Value == "") && (this.JobType.Value == null || this.JobType.Value == "") && (this.JobCoreCompetency.Value == null || this.JobCoreCompetency.Value == ""))
-            //{ 
-            //    output += "\nOOPS! This job does not seem to exist.\n";
-            //}
-            //else
-            //{
+
+            if ((this.Name == null || this.Name == "") && (this.EmployerName.Value == null || this.EmployerName.Value == "") && (this.EmployerLocation.Value == null || this.EmployerLocation.Value == "") && (this.EmployerLocation.Value == null || this.EmployerLocation.Value == "") && (this.JobType.Value == null || this.JobType.Value == "") && (this.JobCoreCompetency.Value == null || this.JobCoreCompetency.Value == ""))
+            {
+                output += "\nOOPS! This job does not seem to exist.\n";
+            }
+            else
+            {
                 output += $"\n{stringId}\n{stringName}\n{stringEmployer}\n{stringLocation}\n{stringJobType}\n{stringCompetency}\n";
-            //}
+            }
             
             return output;
         }
