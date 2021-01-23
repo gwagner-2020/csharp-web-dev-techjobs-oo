@@ -63,16 +63,35 @@ namespace TechJobsOO
             string stringJobType = "";
             string stringCompetency = "";
 
-            if ($"{this.Id}" == null || $"{this.Id}" == "")
+            //List<string> jobString = new List<string> { stringId, stringName, stringEmployer, stringLocation, stringJobType, stringCompetency };
+
+            //List<string> jobValues = new List<string> { $"{this.Id}", this.Name, this.EmployerName.Value, this.EmployerLocation.Value, this.JobType.Value, this.JobCoreCompetency.Value };
+
+            //List<string> tag = new List<string> { "ID", "Name", "Employer", "Location", "Posistion Type", "Core Competency" };
+
+            //for (int i = 0; i < jobValues.Count; i++)
+            //{
+            //    if (jobValues[i] == "")
+            //    {
+            //        jobString[i] += $"{tag[i]}: Data not available";
+            //    }
+            //    else
+            //    {
+            //        jobString[i] += $"{tag[i]}: {jobValues[i]}";
+            //    }
+
+            //}
+
+            if ($"{this.Id}" == "")
             {
                 stringId += "ID: Data not available";
-            } 
+            }
             else
             {
                 stringId += $"ID: {this.Id}";
             }
 
-            if (this.Name == null || this.Name == "")
+            if (this.Name == "")
             {
                 stringName += "Name: Data not available";
             }
@@ -81,7 +100,7 @@ namespace TechJobsOO
                 stringName += $"Name: {this.Name}";
             }
 
-            if (this.EmployerName.Value == null || this.EmployerName.Value == "")
+            if (this.EmployerName.Value == "")
             {
                 stringEmployer += "Employer: Data not available";
             }
@@ -90,7 +109,7 @@ namespace TechJobsOO
                 stringEmployer += $"Employer: {this.EmployerName.Value}";
             }
 
-            if (this.EmployerLocation.Value == null || this.EmployerLocation.Value == "")
+            if (this.EmployerLocation.Value == "")
             {
                 stringLocation += "Location: Data not available";
             }
@@ -99,7 +118,7 @@ namespace TechJobsOO
                 stringLocation += $"Location: {this.EmployerLocation.Value}";
             }
 
-            if (this.JobType.Value == null || this.JobType.Value == "")
+            if (this.JobType.Value == "")
             {
                 stringJobType += "Position Type: Data not available";
             }
@@ -108,7 +127,7 @@ namespace TechJobsOO
                 stringJobType += $"Position Type: {this.JobType.Value}";
             }
 
-            if (this.JobCoreCompetency.Value == null || this.JobCoreCompetency.Value == "")
+            if (this.JobCoreCompetency.Value == "")
             {
                 stringCompetency += "Core Competency: Data not available";
             }
@@ -117,7 +136,8 @@ namespace TechJobsOO
                 stringCompetency += $"Core Competency: {this.JobCoreCompetency.Value}";
             }
 
-            if ((this.Name == null || this.Name == "") && (this.EmployerName.Value == null || this.EmployerName.Value == "") && (this.EmployerLocation.Value == null || this.EmployerLocation.Value == "") && (this.EmployerLocation.Value == null || this.EmployerLocation.Value == "") && (this.JobType.Value == null || this.JobType.Value == "") && (this.JobCoreCompetency.Value == null || this.JobCoreCompetency.Value == ""))
+
+            if (this.Name == "" && this.EmployerName.Value == "" && this.EmployerLocation.Value == "" && this.EmployerLocation.Value == "" && this.JobType.Value == "" && this.JobCoreCompetency.Value == "")
             {
                 output += "\nOOPS! This job does not seem to exist.\n";
             }

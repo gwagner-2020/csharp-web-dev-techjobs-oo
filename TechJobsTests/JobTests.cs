@@ -29,29 +29,13 @@ namespace TechJobsTests
         {
             Job testJob = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
-            int actualOutputId = testJob.Id;
-            int expectedOutputId = 1;
-            Assert.AreEqual(expectedOutputId, actualOutputId);
+            List<string> actualOutput = new List<string> { $"{testJob.Id}", testJob.Name, testJob.EmployerName.Value, testJob.EmployerLocation.Value, testJob.JobType.Value, testJob.JobCoreCompetency.Value };
+            List<string> expectedOutput = new List<string> { "1","Product Tester", "ACME", "Desert", "Quality control", "Persistence" };
 
-            string actualOutputName = testJob.Name;
-            string expectedOutputName = "Product Tester";
-            Assert.AreEqual(expectedOutputName, actualOutputName);
-
-            string actualOutputEmployer = testJob.EmployerName.Value;
-            string expectedOutputEmployer = "ACME";
-            Assert.AreEqual(expectedOutputEmployer, actualOutputEmployer);
-
-            string actualOutputLocation = testJob.EmployerLocation.Value;
-            string expectedOutputLocation = "Desert";
-            Assert.AreEqual(expectedOutputLocation, actualOutputLocation);
-
-            string actualOutputType = testJob.JobType.Value;
-            string expectedOutputType = "Quality control";
-            Assert.AreEqual(expectedOutputType, actualOutputType);
-
-            string actualOutputCompetency = testJob.JobCoreCompetency.Value;
-            string expectedOutputCompetency = "Persistence";
-            Assert.AreEqual(expectedOutputCompetency, actualOutputCompetency);
+            for (int i = 0; i < actualOutput.Count; i++)
+            {
+                Assert.AreEqual(expectedOutput[i], actualOutput[i]); 
+            }
         }
 
 
@@ -123,11 +107,6 @@ namespace TechJobsTests
 
             Assert.AreEqual(expectedOutput, actualOutput);
         }
-        
-        
-
-        
-        
 
     }
 }
